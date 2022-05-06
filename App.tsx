@@ -1,8 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native';
+import { env } from "./config/env";
+import StorybookUIRoot from "./storybook";
 
-export default function App() {
+function App() {
   return (
     <View style={styles.container}>
+      <Text>Enabled ? {env.ENABLE_STORYBOOK}</Text>
       <Text>Open up App.tsx to start working on your app!</Text>
     </View>
   );
@@ -16,3 +19,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+const DefaultComponent = env.ENABLE_STORYBOOK ? StorybookUIRoot : App;
+export default DefaultComponent;
