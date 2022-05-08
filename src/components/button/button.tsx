@@ -2,12 +2,12 @@ import {StyleSheet, Text, TouchableOpacity, TouchableOpacityProps} from "react-n
 
 export interface ButtonProps {
   children: TouchableOpacityProps['children'] | string;
-  onPress: VoidFunction;
+  onPress?: VoidFunction;
   style?: TouchableOpacityProps['style'];
 }
 
 export const Button = ({ children, onPress, style }: ButtonProps) => (
-  <TouchableOpacity onPress={onPress} style={[styles.button, style]}>
+  <TouchableOpacity onPress={onPress} style={[styles.button, style]} activeOpacity={onPress ? undefined : 1}>
     {typeof children === 'string' ? <Text style={styles.text}>{children}</Text> : children}
   </TouchableOpacity>
 )
