@@ -1,4 +1,4 @@
-interface APIResourceURL<T> {
+export interface APIResourceURL<T> extends String {
 }
 
 export namespace PokeAPI {
@@ -186,7 +186,7 @@ export namespace PokeAPI {
     chain: ChainLink;
   }
 
-  interface ChainLink {
+  export interface ChainLink {
     /** Whether or not this link is for a baby Pokémon. This would only ever be true on the base link. */
     is_baby: boolean;
     /** The Pokémon species at this point in the evolution chain. */
@@ -197,7 +197,7 @@ export namespace PokeAPI {
     evolves_to: ChainLink[];
   }
 
-  interface EvolutionDetail {
+  export interface EvolutionDetail {
     /** The item required to cause evolution this into Pokémon species. */
     item: NamedAPIResource<Item> | null;
     /** The type of event that triggers evolution into this Pokémon species. */

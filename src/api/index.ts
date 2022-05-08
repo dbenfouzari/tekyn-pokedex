@@ -1,4 +1,4 @@
-import {EndPointResult, PokeAPI} from "./types";
+import {APIResourceURL, EndPointResult, PokeAPI} from "./types";
 import axios from "axios";
 
 const pokeApi = axios.create({
@@ -12,4 +12,9 @@ const pokeApi = axios.create({
 export const getPokemon = async (idOrName: string | number) => {
   const { data } = await pokeApi.get<PokeAPI.Pokemon>(`/pokemon/${idOrName}`);
   return data
+}
+
+export const manualFetch = async <T>(url: string) => {
+  const { data } = await axios.get<T>(url);
+  return data;
 }
